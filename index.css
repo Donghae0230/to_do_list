@@ -1,0 +1,114 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.todo-wrapper{
+    width: 100%;
+}
+
+.title-container {
+    background-image: url('images/background-img.svg');
+    background-size: cover;
+    height: 322px;
+    position: relative;
+}
+
+.input-container {
+    /* 이미지 정 가운데 텍스트 위치 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+}
+
+.input-container h1 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.input-item {
+    width: 850px;
+    height: 43px;
+    margin-top: 14px;
+    width: 850px;
+    background: #FFFFFF;
+    box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-box {
+    all: unset;
+    width: 790px;
+    height: 30px;
+}
+
+.add-button {
+    all: unset;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    width: 850px;
+    list-style:none;
+    margin-top: 62px;
+}
+
+ul li {
+    height: 41px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #828E93;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: 600;
+}
+
+ul li p {
+    width: 780px;
+}
+
+input[type=checkbox] {
+    display:none;
+}
+
+input[type=checkbox] + label { 
+    width: 28px;
+    height: 28px;
+    margin-right: 13px;
+    margin-left: 3px;
+    background-image: url('images/empty-box.svg');
+    background-size: cover;
+}
+
+input[type=checkbox]:checked + label {
+    width: 30px;
+    height: 30px;
+    background-image: url('images/check-box.svg');
+    background-size: cover;
+}
+
+.delete-button {
+    all: unset;
+    width: 14px;
+    height: 14px;
+    background-image: url('images/delete.svg');
+    background-size: cover;
+}
