@@ -49,3 +49,60 @@ checkList.addEventListener("click", event => {
         }
     }
 })
+
+const weather = document.querySelector(".js-weather");
+const API_key = "your_api_key";
+const COORDS = "coords";
+
+function handleGeoSucc(position) {  
+    console.log(position)
+    const latitude = position.coords.latitude; // 경도
+    const longitude = position.coords.longitude; //위도
+    const coordsObj = { 
+        latitude : latitude, 
+        longitude : longitude
+    };
+    saveCoords(coordsObj);
+    getWeather(latitude, longitude);
+}
+
+function saveCoords(coordsObj) {
+    localStorage.setItem(COORDS, JSON.stringify(coordsObj))
+}
+
+function handleGeoErr(err) {
+    console.log("geo err!" + err);
+}
+
+function requestCoords() {
+    navigator.geolocation.getCurrentPosition(handleGeoSucc, handleGeoErr);
+}
+
+function getWeather(lat, lon) {
+    // units=metric 사용해서 화씨 -> 섭씨 단위로 변경
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        const temp = data.main.temp;
+        const name = data.name;
+        const weathers = data.weather[data.weather.length-1];
+        weather.innerHTML = `${name} ${temp}&#176;C ${weathers.main}`;
+    })
+}
+
+function loadCoords(){
+    const loadCoords = localStorage.getItem(COORDS);
+    if(loadCoords === null) {
+        requestCoords();
+    } else {
+        const parsedCoords = JSON.parse(loadCoords);
+        getWeather(parsedCoords.latitude, parsedCoords.longitude);
+    }
+}
+
+function init(){
+    loadCoords();
+}
+
+init();

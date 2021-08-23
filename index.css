@@ -13,6 +13,7 @@
     background-size: cover;
     height: 322px;
     position: relative;
+    margin-bottom: 12px;
 }
 
 .input-container {
@@ -55,6 +56,17 @@
     all: unset;
 }
 
+.js-weather {
+    width: 855px;
+    margin: 0 auto;
+    text-align: end;
+    color: #CED6DA;
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .item-container {
     display: flex;
     flex-direction: column;
@@ -64,7 +76,7 @@
 ul {
     width: 850px;
     list-style:none;
-    margin-top: 62px;
+    margin-top: 15px;
 }
 
 ul li {
