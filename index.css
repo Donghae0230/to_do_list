@@ -52,6 +52,13 @@
     height: 30px;
 }
 
+.input-box::placeholder {
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: 400;
+    color: #B6D0DF;
+}
+
 .add-button {
     all: unset;
 }

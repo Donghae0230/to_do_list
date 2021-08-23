@@ -6,11 +6,13 @@ let itemList = []
 addButton.addEventListener("click", addItem)
 
 function addItem() {
-    let item = document.querySelector(".input-box").value;
-    if (item != null) {
-        // 값이 null이 아닐 때 push하고 초기화
-        itemList.push(item) 
-        document.querySelector(".input-box").value = "";
+    let inputBox = document.querySelector(".input-box")
+    // 값이 null이 아닐 때 push하고 초기화
+    if (inputBox.value != "") {
+        itemList.push(inputBox.value) 
+        inputBox.value = "";
+    } else {
+        inputBox.setAttribute('placeholder', 'please fill in this field!')
     }
     showList();
 }
@@ -50,6 +52,7 @@ checkList.addEventListener("click", event => {
     }
 })
 
+//날씨 api 추가
 const weather = document.querySelector(".js-weather");
 const API_key = "your_api_key";
 const COORDS = "coords";
